@@ -15,3 +15,5 @@ Lembretes para usar com UV:
 - uv run task doc
 - uv pip install isort black
 - uv pip install pytest
+
+todo arquivo de teste na pasta tests deve começar com test para rodar corretamente

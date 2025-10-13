@@ -1,2 +1,2 @@
 def funcao_ola ():
-    pass 
+    return "ola"
