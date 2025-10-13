@@ -1,0 +1,17 @@
+Lembretes para usar com UV:
+
+- uv init pra iniciaar o projeto (main.py, .python-version, project.toml, .gitignore e .git são criados);
+- uv venv pra criar o ambiente virtual;
+- uv pip install para as libs;
+- depois de instalar o mkdocs:
+
+    1) mkdocs new .
+    2) uv run mkdocs serve pra criar a config do mkdocs
+    3) uv pip install mkdocs-mermaid2-plugin
+    4) uv pip install mkdocs-material
+    5) uv pip install mkdocstrings-python
+
+- instalar uv pip install taskipy 
+- uv run task doc
+- uv pip install isort black
+- uv pip install pytest
