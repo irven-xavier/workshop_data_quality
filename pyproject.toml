@@ -17,3 +17,8 @@ run = """
 python app/main.py
 """
 doc = "mkdocs serve"
+
+[dependency-groups]
+dev = [
+    "taskipy>=1.14.1",
+]
