@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pandera[io]>=0.26.1",
+    "psycopg2>=2.9.11",
+    "sqlalchemy>=2.0.44",
+]
 
 [tool.taskipy.tasks]
 format = """

@@ -3,8 +3,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from pathlib import Path
 import os
-import pandera.pandas as pa # usar assim pra mexer com pandas
-from prod_schema import ProdutoSchema
+import pandera as pa
 
 # variaveis de ambiente do postgresql
 def load_settings():
@@ -23,7 +22,6 @@ def load_settings():
     return settings
 
 # criar conexão com o banco de dados
-@pa.check_output(ProdutoSchema.to_schema())
 def extrair_do_sql(query: str) -> pd.DataFrame:
 
     settings = load_settings()
@@ -41,10 +39,14 @@ def extrair_do_sql(query: str) -> pd.DataFrame:
 
     return df_crm   
 
-# rodar o script e fazer query 
+# rodar o script e fazer query para a inferência do schema da tabela no banco de dados
 if __name__ == "__main__" :
 
-    query = "SELECT * FROM produtos_bronze LIMIT 100" 
+    query = "SELECT * FROM produtos_bronze LIMIT 100" # pra inferência ser baseada em uma amostra da tabela
     df_crm = extrair_do_sql(query=query)
+    schema_crm = pa.infer_schema(df_crm)
+
+    with open("schema_crm.py", "w", encoding="utf-8") as arquivo:
+        arquivo.write(schema_crm.to_script())
 
     print(df_crm)
