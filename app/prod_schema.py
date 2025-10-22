@@ -1,9 +1,9 @@
 import pandera as pa
 from pandera.typing import Series
-from pandera import DataFrameModel
+from pandera import DataFrameModel # usar esse ao invés de DataFrame
 
 
-class ProdutoSchema(DataFrameModel):
+class ProdutoSchema(DataFrameModel): # usar DataFrameModel ao invés de SchemaModel
 
     id_produto: Series[int]
     nome: Series[str]
