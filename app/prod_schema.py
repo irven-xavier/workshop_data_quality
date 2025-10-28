@@ -7,7 +7,7 @@ class ProdutoSchema(DataFrameModel): # usar DataFrameModel ao invés de SchemaMo
 
     id_produto: Series[int]
     nome: Series[str]
-    quantidade: Series[int]
+    quantidade: Series[int] = pa.Field(ge=0)
     preco: Series[float]
     categoria: Series[str]
 

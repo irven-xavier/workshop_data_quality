@@ -23,7 +23,7 @@ def load_settings():
     return settings
 
 # criar conexão com o banco de dados
-@pa.check_output(ProdutoSchema.to_schema())
+@pa.check_output(ProdutoSchema.to_schema(), lazy=True)
 def extrair_do_sql(query: str) -> pd.DataFrame:
 
     settings = load_settings()
